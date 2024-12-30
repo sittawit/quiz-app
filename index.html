@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz with SVG Icons</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400&family=Itim&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="quiz-container">
+        <!-- ไอคอน SVG จะแสดงที่นี่ -->
+        <div id="icon-container" class="icon-container"></div>
+        <h2 id="question-number"></h2>
+        <p id="question-text"></p>
+        <form id="quizForm"></form>
+        <button id="nextButton" style="display:none;">ถัดไป</button>
+        <p id="score"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
