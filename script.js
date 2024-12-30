@@ -2,6 +2,26 @@ let currentQuestionIndex = 0;
 let score = 0;
 let questions = [];
 
+const backgroundColors = [
+  "#FFD700", "#FF6F61", "#FCE38A", "#FFABAB", "#D4A5FF"
+];
+
+let usedColors = []; // เก็บสีที่ถูกใช้ไปแล้ว
+
+function getRandomColor() {
+    // หากใช้สีครบทั้งหมดแล้ว ให้รีเซ็ต
+    if (usedColors.length === backgroundColors.length) {
+        usedColors = [];
+    }
+
+    let color;
+    do {
+        color = backgroundColors[Math.floor(Math.random() * backgroundColors.length)];
+    } while (usedColors.includes(color)); // สุ่มจนกว่าจะเจอสีที่ยังไม่ถูกใช้
+
+    usedColors.push(color); // บันทึกสีที่ถูกใช้แล้ว
+    return color;
+}
 
 // สุ่มลำดับคำถาม
 function shuffleQuestions(array) {
@@ -26,26 +46,24 @@ function loadQuestion() {
       const quizForm = document.getElementById("quizForm");
       quizForm.innerHTML = "";
 
-      // ซ่อนปุ่ม "ถัดไป" ก่อน
       const nextButton = document.getElementById("nextButton");
       nextButton.style.display = "none";
 
-      // แสดงรูปภาพที่เกี่ยวข้องกับคำถาม
+      const quizContainer = document.querySelector(".quiz-container");
+      quizContainer.style.backgroundColor = getRandomColor(); // เปลี่ยนสีพื้นหลัง
+
       const iconContainer = document.getElementById("icon-container");
       document.getElementById("icon-container").style.display = "block";
-      iconContainer.innerHTML = `<img src="${questionData.image}" alt="Question Image" class="w-1/2 max-h-60 rounded-md mx-auto mb-4">`;
+      iconContainer.innerHTML = `<img src="${questionData.image}" alt="Question Image" class="image-container img">`;
 
       questionData.choices.forEach((choice, index) => {
           const choiceDiv = document.createElement("div");
           choiceDiv.textContent = choice;
-          choiceDiv.className = "choice bg-yellow-100 p-4 rounded-md mb-2 cursor-pointer hover:bg-yellow-200";
+          choiceDiv.className = "choice";
 
           choiceDiv.addEventListener("click", () => {
-              // ลบ highlight จากตัวเลือกอื่น
               document.querySelectorAll(".choice").forEach(c => c.classList.remove("bg-yellow-300"));
-              // เพิ่ม highlight ให้ตัวเลือกที่เลือก
               choiceDiv.classList.add("bg-yellow-300");
-              // แสดงปุ่ม "ถัดไป"
               nextButton.style.display = "block";
           });
 
@@ -60,8 +78,6 @@ function loadQuestion() {
       document.getElementById("icon-container").style.display = "none";
   }
 }
-
-
 
 
 // ตรวจคำตอบและโหลดคำถามถัดไป

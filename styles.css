@@ -1,42 +1,43 @@
 body {
-    font-family: 'Itim', 'Kanit', Arial, sans-serif;
+    font-family: 'Itim', cursive;
     background-color: #FFFBF2;
-    margin: 0;
-    padding: 20px;
 }
 
 .quiz-container {
-    background: #FFF7E7;
+    background: linear-gradient(to bottom, #FFDDC1, #FFD7D7);
     border-radius: 20px;
     padding: 20px;
-    max-width: 400px;
+    max-width: 500px;
     margin: auto;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
 }
+
 
 .icon-container {
     margin: 15px auto;
 }
 
 .image-container img {
-    max-width: 50%; /* ปรับตามความเหมาะสม */
-    max-height: 50%; /* จำกัดความสูง */
-    height: auto; /* ให้คงสัดส่วนภาพ */
-    width: auto; /* ให้คงสัดส่วนภาพ */
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto; /* จัดกึ่งกลาง */
+    max-width: 80%; /* ขนาดรูปภาพ */
+    max-height: 200px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
+
+
 
 h2 {
     color: #FF6F61;
-    margin-bottom: 10px;
+    font-size: 24px;
+    margin-bottom: 15px;
 }
 
 p {
-    margin-bottom: 20px;
-    font-size: 18px;
+    font-size: 20px;
+    color: #555;
 }
 
 label {
@@ -54,19 +55,33 @@ input[type="radio"] {
     margin-right: 10px;
 }
 
-button {
-    background-color: #FFABAB;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 10px;
+.choice {
+    background: #FCE38A;
+    padding: 15px;
+    border-radius: 15px;
+    margin: 10px;
+    font-size: 18px;
     cursor: pointer;
-    font-family: 'Kanit', sans-serif;
-    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.choice:hover {
+    background: #FFABAB;
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #FFD700;
+    color: #333;
+    font-size: 18px;
+    border-radius: 15px;
+    padding: 10px 25px;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #FF8888;
+    background-color: #FFC107;
+    transform: scale(1.1);
 }
 
 #score {
