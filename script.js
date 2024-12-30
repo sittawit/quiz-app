@@ -32,6 +32,7 @@ function loadQuestion() {
 
       // แสดงรูปภาพที่เกี่ยวข้องกับคำถาม
       const iconContainer = document.getElementById("icon-container");
+      document.getElementById("icon-container").style.display = "block";
       iconContainer.innerHTML = `<img src="${questionData.image}" alt="Question Image" class="w-1/2 max-h-60 rounded-md mx-auto mb-4">`;
 
       questionData.choices.forEach((choice, index) => {
@@ -56,6 +57,7 @@ function loadQuestion() {
       document.getElementById("question-number").textContent = "แบบทดสอบเสร็จสิ้น!";
       document.getElementById("question-text").textContent = `คะแนนของคุณ: ${score}/${questions.length}`;
       document.getElementById("nextButton").style.display = "none";
+      document.getElementById("icon-container").style.display = "none";
   }
 }
 
