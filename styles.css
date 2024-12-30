@@ -19,20 +19,15 @@ body {
     margin: 15px auto;
 }
 
-.icon {
-    width: 5vw; /* ขนาดปรับตามความกว้างหน้าจอ */
-    height: 5vw;
-    min-width: 30px; /* ขนาดขั้นต่ำ */
-    min-height: 30px; /* ขนาดขั้นต่ำ */
-    fill: #5dd74b;
+.image-container img {
+    max-width: 50%; /* ปรับตามความเหมาะสม */
+    max-height: 50%; /* จำกัดความสูง */
+    height: auto; /* ให้คงสัดส่วนภาพ */
+    width: auto; /* ให้คงสัดส่วนภาพ */
     display: block;
-    margin: 10px auto;
-    max-width: 100%;
-    max-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
-
-
-
 
 h2 {
     color: #FF6F61;
